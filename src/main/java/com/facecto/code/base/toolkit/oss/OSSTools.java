@@ -1,4 +1,4 @@
-package com.facecto.code.base.tool.oss;
+package com.facecto.code.base.toolkit.oss;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
@@ -6,8 +6,8 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.aliyuncs.sts.model.v20150401.AssumeRoleRequest;
 import com.aliyuncs.sts.model.v20150401.AssumeRoleResponse;
-import com.facecto.code.base.tool.oss.entity.OSSParam;
-import com.facecto.code.base.tool.oss.entity.STSToken;
+import com.facecto.code.base.toolkit.oss.entity.OSSParam;
+import com.facecto.code.base.toolkit.oss.entity.STSToken;
 
 /**
  * @author Jon So, https://cto.pub, https://github.com/facecto

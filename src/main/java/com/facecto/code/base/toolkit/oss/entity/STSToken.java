@@ -1,4 +1,4 @@
-package com.facecto.code.base.tool.oss.entity;
+package com.facecto.code.base.toolkit.oss.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -9,12 +9,10 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class OSSParam {
-    private String endpoint;
+public class STSToken {
+    private String expiration;
     private String accessKeyId;
     private String accessKeySecret;
-    private String roleArn;
-    private String roleSessionName;
-    private String policy;
-    private Long expiration;
+    private String securityToken;
+    private String requestId;
 }
