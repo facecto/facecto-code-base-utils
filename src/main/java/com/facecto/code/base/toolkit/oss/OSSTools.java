@@ -32,7 +32,7 @@ public class OSSTools {
             stsToken.setSecurityToken(response.getCredentials().getSecurityToken());
             stsToken.setRequestId(response.getRequestId());
         } catch (ClientException e) {
-            System.out.println("Failed：");
+            System.out.println("Failed：" + e.getMessage());
         }
         return stsToken;
     }
