@@ -7,10 +7,27 @@ facecto-code-base-utils is a standard tool library that contains commonly used u
 <dependency>
   <groupId>com.facecto.code</groupId>
   <artifactId>facecto-code-base-utils</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.2</version>
 </dependency>
 ```
 ## Step 2 : No more step. Enjoy it.
+
+# About UploadTools
+UploadTools is a set of direct transfer solution based on AliCloud OSS.The function is written on New Year's Day 2022, wishing you a happy new year.
+File upload services are provided for.
+1. uploadFile(MultipartFile file, OSSDirectParam param)
+2. uploadFile(MultipartFile file, String savePath, OSSDirectParam param)
+3. uploadFile(InputStream inputStream, String savePath, OSSDirectParam param)
+4. uploadFile(byte[] data, String savePath, OSSDirectParam param)
+
+Image upload service is provided for.
+1. upImageBase(MultipartFile file, String savePath, WatermarkType waterType, WatermarkText waterText,
+   WatermarkImage waterImage, OSSDirectParam param)
+2. upImageBase(InputStream inputStream, String savePath, WatermarkType waterType, WatermarkText waterText,
+   WatermarkImage waterImage, OSSDirectParam param)
+
+# About OSSTools
+OssTools is an AliCloud OSS tool, the current version provides STS-based Token acquisition scheme.
 
 # About IdBuilder
 * The ID Builder is based on twitter snowflakes.
