@@ -29,6 +29,9 @@ Image upload service is provided for.
 # About OSSTools
 OssTools is an AliCloud OSS tool, the current version provides STS-based Token acquisition scheme.
 
+# About QRCodeUtils
+QR code generation and reading tool based on Google zxing.
+
 # About IdBuilder
 * The ID Builder is based on twitter snowflakes.
 * Used to generate sequential codes with dates.

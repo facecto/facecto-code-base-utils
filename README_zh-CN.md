@@ -7,10 +7,30 @@ facecto-code-base-utils 是一套工具集，它将聚合更多的工具。
 <dependency>
   <groupId>com.facecto.code</groupId>
   <artifactId>facecto-code-base-utils</artifactId>
-  <version>1.0</version>
+  <version>1.1.2</version>
 </dependency>
 ```
 ## 步骤 2 : 没有更多步骤了
+
+# 关于 UploadTools
+UploadTools 是基于阿里云OSS的直接上传方案。代码于2022元旦，祝新年快乐。
+提供如下文件上传功能：
+1. uploadFile(MultipartFile file, OSSDirectParam param)
+2. uploadFile(MultipartFile file, String savePath, OSSDirectParam param)
+3. uploadFile(InputStream inputStream, String savePath, OSSDirectParam param)
+4. uploadFile(byte[] data, String savePath, OSSDirectParam param)
+
+提供如下图片上传功能：（可选加水印：图片水印、文字水印）
+1. upImageBase(MultipartFile file, String savePath, WatermarkType waterType, WatermarkText waterText,
+   WatermarkImage waterImage, OSSDirectParam param)
+2. upImageBase(InputStream inputStream, String savePath, WatermarkType waterType, WatermarkText waterText,
+   WatermarkImage waterImage, OSSDirectParam param)
+
+# 关于 OSSTools
+OssTools 封装了阿里云的 STS token获取方式。
+
+# 关于 QRCodeUtils
+基于Google zxing的二维码生成和解码工具。
 
 ## 关于ID生成器
 * 生成的结果总长度是定长24位字符串
