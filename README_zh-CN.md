@@ -60,3 +60,5 @@ OssTools 封装了阿里云的 STS token获取方式。
 # 关于 facecto.com
 https://facecto.com
 
+# 文档更新时间
+2020-02-14
