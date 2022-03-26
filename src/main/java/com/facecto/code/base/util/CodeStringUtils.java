@@ -1,5 +1,7 @@
 package com.facecto.code.base.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -59,7 +61,17 @@ public class CodeStringUtils {
      *
      * @return string
      */
-    private static String getUuidNoHyphen(int len) {
+    public static String getUuidNoHyphen(int len) {
         return UUID.randomUUID().toString().replaceAll("-", "").substring(0, len);
+    }
+
+    /**
+     * get random string
+     *
+     * @return String
+     */
+    public static String getRandomNo() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+        return sdf.format(new Date()) + getUuidNoHyphen(16);
     }
 }
