@@ -14,6 +14,16 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class WatermarkText {
+    private static final int DEFAULT_MARGIN_X = 20;
+    private static final int DEFAULT_MARGIN_Y = 20;
+    private static final WatermarkPosition DEFAULT_POSITION = WatermarkPosition.TOP_LEFT;
+    private static final String DEFAULT_TEXT = "facecto.com";
+    private static final String DEFAULT_FONT_NAME = "Arial";
+    private static final int DEFAULT_FONT_SIZE = 14;
+    private static final int DEFAULT_RED = 0;
+    private static final int DEFAULT_GREEN = 0;
+    private static final int DEFAULT_BLUE = 0;
+    private static final int DEFAULT_ALPHA = 255;
     /**
      * The watermark coordinates X
      */
@@ -54,17 +64,6 @@ public class WatermarkText {
      * The watermark alpha, Value range 0 - 255
      */
     private int alpha;
-
-    private static final int DEFAULT_MARGIN_X = 20;
-    private static final int DEFAULT_MARGIN_Y = 20;
-    private static final WatermarkPosition DEFAULT_POSITION = WatermarkPosition.TOP_LEFT;
-    private static final String DEFAULT_TEXT = "facecto.com";
-    private static final String DEFAULT_FONT_NAME = "Arial";
-    private static final int DEFAULT_FONT_SIZE = 14;
-    private static final int DEFAULT_RED = 0;
-    private static final int DEFAULT_GREEN = 0;
-    private static final int DEFAULT_BLUE = 0;
-    private static final int DEFAULT_ALPHA = 255;
 
     public WatermarkText() {
         this.marginX = DEFAULT_MARGIN_X;

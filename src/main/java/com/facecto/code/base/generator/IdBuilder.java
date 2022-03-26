@@ -15,7 +15,7 @@ import java.time.format.DateTimeFormatter;
  * The 10th bit is the machine designator and takes the value range 0-15 (displayed as 0-9A-F in hexadecimal).
  * The last 14 bits are the sequence codes.
  * Example: 20211202AB10098259438592
- *
+ * <p>
  * Joke: A technician of a company (in Xiamen),
  * he memorized the snowflake very well and was proud of it. When the digit adjustment, he did not recognize it,
  * hahaha...
@@ -24,7 +24,7 @@ public class IdBuilder {
     private final static int CODE_LENGTH = 14;
     private final static long APP_BIT = 4L;
     private final static long MACHINE_BIT = 4L;
-    private final static long SEQUENCE_BIT =12L;
+    private final static long SEQUENCE_BIT = 12L;
 
     private final static long MAX_SEQUENCE = -1L ^ (-1L << SEQUENCE_BIT);
     private final static long MAX_MACHINE_NUM = -1L ^ (-1L << MACHINE_BIT);
@@ -36,7 +36,7 @@ public class IdBuilder {
 
     private final static String DATE_STRING = LocalDate.now().toString();
     private final static DateTimeFormatter DF = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    private final static long START_TIMESTAMP = LocalDateTime.parse(DATE_STRING+" 00:00:00",DF)
+    private final static long START_TIMESTAMP = LocalDateTime.parse(DATE_STRING + " 00:00:00", DF)
             .toInstant(ZoneOffset.of("+8")).toEpochMilli();
 
     private long appId;
@@ -49,24 +49,26 @@ public class IdBuilder {
 
     /**
      * The parameters are required
-     * @param appId Microservice Code,takes values in the range 0-15
+     *
+     * @param appId     Microservice Code,takes values in the range 0-15
      * @param machineId Machine code,takes values in the range 0-15
      */
-    public IdBuilder(long appId, long machineId){
-        if(appId > MAX_APP_NUM || appId <0){
+    public IdBuilder(long appId, long machineId) {
+        if (appId > MAX_APP_NUM || appId < 0) {
             throw new IllegalArgumentException("AppId can't be greater than 15 or less than 0！");
         }
-        if(machineId > MAX_MACHINE_NUM || machineId <0){
+        if (machineId > MAX_MACHINE_NUM || machineId < 0) {
             throw new IllegalArgumentException("MachineId can't be greater than 15 or less than 0！");
         }
         this.appId = appId;
-        this.machineId =machineId;
-        appIdChar = Long.toString(appId,16).toUpperCase();
-        machineChar = Long.toString(machineId,16).toUpperCase();
+        this.machineId = machineId;
+        appIdChar = Long.toString(appId, 16).toUpperCase();
+        machineChar = Long.toString(machineId, 16).toUpperCase();
     }
 
     /**
      * Get millis
+     *
      * @return millis
      */
     private long getNext() {
@@ -79,6 +81,7 @@ public class IdBuilder {
 
     /**
      * Get millis
+     *
      * @return millis
      */
     private long getNew() {
@@ -87,6 +90,7 @@ public class IdBuilder {
 
     /**
      * Generate ID
+     *
      * @return 24bit ID
      */
     public synchronized String genId() {
@@ -109,29 +113,31 @@ public class IdBuilder {
                 | appId << APP_LEFT
                 | machineId << MACHINE_LEFT
                 | sequence;
-        return DATE_STRING.replace("-","") + appIdChar + machineChar + cast(result.toString());
+        return DATE_STRING.replace("-", "") + appIdChar + machineChar + cast(result.toString());
     }
 
     /**
      * Converts to a length-compliant string
+     *
      * @param StringNumber
      * @return 14bit string
      */
-    private String cast(String StringNumber){
+    private String cast(String StringNumber) {
         int len1 = StringNumber.length();
-        if(len1<CODE_LENGTH){
-            return getZero(CODE_LENGTH-len1) + StringNumber;
+        if (len1 < CODE_LENGTH) {
+            return getZero(CODE_LENGTH - len1) + StringNumber;
         }
         return StringNumber;
     }
 
     /**
      * Left-aligned zero complement
+     *
      * @param x Number of replenishments required
      * @return 14bit string
      */
-    private String getZero(int x){
-        if(x<=0){
+    private String getZero(int x) {
+        if (x <= 0) {
             return "";
         }
         StringBuilder sb = new StringBuilder();

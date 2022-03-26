@@ -1,31 +1,24 @@
 package com.facecto.code.base.toolkit.oss;
 
-import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClientBuilder;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.aliyuncs.sts.model.v20150401.AssumeRoleRequest;
 import com.aliyuncs.sts.model.v20150401.AssumeRoleResponse;
-import com.facecto.code.base.toolkit.oss.entity.OSSDirectParam;
 import com.facecto.code.base.toolkit.oss.entity.OSSSTSParam;
 import com.facecto.code.base.toolkit.oss.entity.STSToken;
-import lombok.Builder;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * OSSTools
+ *
  * @author Jon So, https://cto.pub, https://github.com/facecto
  * @version v1.0.0 (2021/12/09)
  */
-public class OSSTools {
+public class OssHandler {
     /**
      * Get OSS STS token
+     *
      * @param ossParam
      * @return STS token
      */

@@ -15,10 +15,11 @@ import java.util.Date;
 
 /**
  * DateTimeUtils
+ *
  * @author Jon So, https://cto.pub, https://github.com/facecto
  * @version v1.1.0 (2021/08/08)
  */
-public class DateTimeUtils {
+public class CodeDateTimeUtils {
 
     /**
      * yyyy-MM-dd
@@ -36,7 +37,7 @@ public class DateTimeUtils {
     public final static String DATE_TIME_STRING_PATTERN = "yyyyMMddHHmmss";
 
     /**
-     * get milliseconds now
+     * get milliseconds now(Shanghai)
      *
      * @return long
      */
@@ -45,7 +46,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * get seconds now
+     * get seconds now(Shanghai)
      *
      * @return long
      */
@@ -55,7 +56,7 @@ public class DateTimeUtils {
 
 
     /**
-     * get milliseconds by local datetime
+     * get milliseconds by local datetime(Shanghai)
      *
      * @param time LocalDateTime
      * @return long
@@ -66,7 +67,7 @@ public class DateTimeUtils {
 
 
     /**
-     * get seconds by local datetime
+     * get seconds by local datetime(Shanghai)
      *
      * @param time LocalDateTime
      * @return long
@@ -75,6 +76,14 @@ public class DateTimeUtils {
         return time.toEpochSecond(ZoneOffset.of("+8"));
     }
 
+    /**
+     * get current time timestamp by local datetime(Shanghai)
+     *
+     * @return String
+     */
+    public static String getCurrentTimeStamp() {
+        return Long.toString(getSecond());
+    }
 
     /**
      * yyyy-MM-dd
@@ -89,7 +98,7 @@ public class DateTimeUtils {
     /**
      * return by format
      *
-     * @param date date
+     * @param date    date
      * @param pattern String pattern
      * @return String
      */

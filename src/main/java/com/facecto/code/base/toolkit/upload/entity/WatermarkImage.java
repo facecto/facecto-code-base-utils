@@ -14,6 +14,11 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class WatermarkImage {
+    private static final int DEFAULT_MARGIN_X = 20;
+    private static final int DEFAULT_MARGIN_Y = 20;
+    private static final WatermarkPosition DEFAULT_POSITION = WatermarkPosition.TOP_LEFT;
+    private static final String DEFAULT_URL = "";
+    private static final float DEFAULT_ALPHA = 1F;
     /**
      * Watermark margin X
      */
@@ -34,12 +39,6 @@ public class WatermarkImage {
      * Watermark alpha
      */
     private float waterAlpha = 1f;
-
-    private static final int DEFAULT_MARGIN_X = 20;
-    private static final int DEFAULT_MARGIN_Y = 20;
-    private static final WatermarkPosition DEFAULT_POSITION = WatermarkPosition.TOP_LEFT;
-    private static final String DEFAULT_URL = "";
-    private static final float DEFAULT_ALPHA = 1F;
 
     public WatermarkImage() {
         this.marginX = DEFAULT_MARGIN_X;

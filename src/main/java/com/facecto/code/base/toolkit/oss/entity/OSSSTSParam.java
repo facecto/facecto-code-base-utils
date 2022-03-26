@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class OSSSTSParam extends OSSBaseParam{
+public class OSSSTSParam extends OSSBaseParam {
     private String roleArn;
     private String roleSessionName;
     private String policy;

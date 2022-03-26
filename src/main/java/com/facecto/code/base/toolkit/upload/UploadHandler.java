@@ -27,7 +27,94 @@ import java.util.Map;
  * @author Jon So, https://cto.pub, https://github.com/facecto
  * @version v1.1.2 (2022/01/01)
  */
-public class UploadTools {
+public class UploadHandler {
+    /**
+     * get watermark position
+     *
+     * @param position   position
+     * @param marginX    margin x
+     * @param marginY    margin y
+     * @param imgWidth   image width
+     * @param imgHeight  image height
+     * @param iconWidth  watermark width
+     * @param iconHeight watermark height
+     * @return map
+     */
+    private static Map<String, Integer> getPosition(WatermarkPosition position, int marginX
+            , int marginY, int imgWidth, int imgHeight, int iconWidth, int iconHeight) {
+        int x = 0;
+        int y = 0;
+        int xx = imgWidth - iconWidth;
+        int yy = imgHeight - iconHeight;
+        switch (position) {
+            case TOP_CENTER:
+                x = Math.floorDiv(xx, 2);
+                y = marginY;
+                break;
+            case TOP_RIGHT:
+                x = xx - marginX;
+                y = marginY;
+                break;
+            case MIDDLE_LEFT:
+                x = marginX;
+                y = Math.floorDiv(yy, 2);
+                break;
+            case MIDDLE_CENTER:
+                x = Math.floorDiv(xx, 2);
+                y = Math.floorDiv(yy, 2);
+                break;
+            case MIDDLE_RIGHT:
+                x = xx - marginX;
+                y = Math.floorDiv(yy, 2);
+                break;
+            case UNDER_LEFT:
+                x = marginX;
+                y = yy - marginY;
+                break;
+            case UNDER_CENTER:
+                x = Math.floorDiv(xx, 2);
+                y = yy - marginY;
+                break;
+            case UNDER_RIGHT:
+                x = xx - marginX;
+                y = yy - marginY;
+                break;
+            default:
+                x = marginX;
+                y = marginY;
+        }
+        Map<String, Integer> map = new HashMap<>();
+        map.put("x", x);
+        map.put("y", y);
+        return map;
+    }
+
+    /**
+     * Download file from web
+     *
+     * @param urlString URLs that begin with http or https
+     * @return local path
+     * @throws IOException
+     */
+    private static String downloadImage(String urlString) throws IOException {
+        URL url = new URL(urlString);
+        URLConnection con = url.openConnection();
+        InputStream is = con.getInputStream();
+        byte[] bs = new byte[1024];
+        int len;
+        File f = new File("");
+        String filename = f.getCanonicalPath() + "\\" + System.currentTimeMillis() + ".jpg";
+        File file = new File(filename);
+        FileOutputStream os = new FileOutputStream(file, true);
+        while ((len = is.read(bs)) != -1) {
+            os.write(bs, 0, len);
+        }
+        os.close();
+        is.close();
+        System.out.println(filename);
+        return filename;
+    }
+
     /**
      * Upload file to root directory.
      * Ali OSS direct upload
@@ -257,94 +344,8 @@ public class UploadTools {
     }
 
     /**
-     * get watermark position
-     *
-     * @param position   position
-     * @param marginX    margin x
-     * @param marginY    margin y
-     * @param imgWidth   image width
-     * @param imgHeight  image height
-     * @param iconWidth  watermark width
-     * @param iconHeight watermark height
-     * @return map
-     */
-    private static Map<String, Integer> getPosition(WatermarkPosition position, int marginX
-            , int marginY, int imgWidth, int imgHeight, int iconWidth, int iconHeight) {
-        int x = 0;
-        int y = 0;
-        int xx = imgWidth - iconWidth;
-        int yy = imgHeight - iconHeight;
-        switch (position) {
-            case TOP_CENTER:
-                x = Math.floorDiv(xx, 2);
-                y = marginY;
-                break;
-            case TOP_RIGHT:
-                x = xx - marginX;
-                y = marginY;
-                break;
-            case MIDDLE_LEFT:
-                x = marginX;
-                y = Math.floorDiv(yy, 2);
-                break;
-            case MIDDLE_CENTER:
-                x = Math.floorDiv(xx, 2);
-                y = Math.floorDiv(yy, 2);
-                break;
-            case MIDDLE_RIGHT:
-                x = xx - marginX;
-                y = Math.floorDiv(yy, 2);
-                break;
-            case UNDER_LEFT:
-                x = marginX;
-                y = yy - marginY;
-                break;
-            case UNDER_CENTER:
-                x = Math.floorDiv(xx, 2);
-                y = yy - marginY;
-                break;
-            case UNDER_RIGHT:
-                x = xx - marginX;
-                y = yy - marginY;
-                break;
-            default:
-                x = marginX;
-                y = marginY;
-        }
-        Map<String, Integer> map = new HashMap<>();
-        map.put("x", x);
-        map.put("y", y);
-        return map;
-    }
-
-    /**
-     * Download file from web
-     *
-     * @param urlString URLs that begin with http or https
-     * @return local path
-     * @throws IOException
-     */
-    private static String downloadImage(String urlString) throws IOException {
-        URL url = new URL(urlString);
-        URLConnection con = url.openConnection();
-        InputStream is = con.getInputStream();
-        byte[] bs = new byte[1024];
-        int len;
-        File f = new File("");
-        String filename = f.getCanonicalPath() + "\\" + System.currentTimeMillis() + ".jpg";
-        File file = new File(filename);
-        FileOutputStream os = new FileOutputStream(file, true);
-        while ((len = is.read(bs)) != -1) {
-            os.write(bs, 0, len);
-        }
-        os.close();
-        is.close();
-        System.out.println(filename);
-        return filename;
-    }
-
-    /**
      * Get multipartFile suffix
+     *
      * @param file
      * @return file suffix
      */

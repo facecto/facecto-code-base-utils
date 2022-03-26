@@ -19,11 +19,12 @@ import java.util.Map;
 
 /**
  * QRCodeUtils
+ *
  * @author Jon So, https://cto.pub, https://github.com/facecto
  * @version v1.1.2 (2022/01/01)
  */
 @Slf4j
-public class QRCodeUtils {
+public class CodeQRUtils {
     private static final int CODE_WIDTH = 400;
     private static final int CODE_HEIGHT = 400;
     private static final int COLOR_FRONT = 0x000000;
@@ -36,28 +37,29 @@ public class QRCodeUtils {
 
     /**
      * Constructors
-     * @param width Number, if less than or equal to 0 will use the default value of 400.
-     * @param height Number, if less than or equal to 0 will use the default value of 400.
-     * @param color_front QR code body color, hexadecimal color, or default black if empty.
+     *
+     * @param width            Number, if less than or equal to 0 will use the default value of 400.
+     * @param height           Number, if less than or equal to 0 will use the default value of 400.
+     * @param color_front      QR code body color, hexadecimal color, or default black if empty.
      * @param color_background Background color, hex color, or default black if empty.
      */
-    public QRCodeUtils(int width, int height, Integer color_front, Integer color_background){
-        if(width<=0){
+    public CodeQRUtils(int width, int height, Integer color_front, Integer color_background) {
+        if (width <= 0) {
             this.codeWidth = CODE_WIDTH;
         } else {
             this.codeWidth = width;
         }
-        if(height<=0){
+        if (height <= 0) {
             this.codeHeight = CODE_HEIGHT;
         } else {
-            this.codeHeight= height;
+            this.codeHeight = height;
         }
-        if(color_front == null || color_front<=0){
+        if (color_front == null || color_front <= 0) {
             this.colorFront = COLOR_FRONT;
         } else {
             this.colorFront = color_front;
         }
-        if(color_background == null || color_background<=0){
+        if (color_background == null || color_background <= 0) {
             this.colorBackground = COLOR_BACKGROUND;
         } else {
             this.colorBackground = color_background;
@@ -67,15 +69,16 @@ public class QRCodeUtils {
     /**
      * Constructors by default value
      */
-    public QRCodeUtils(){
+    public CodeQRUtils() {
         this.codeWidth = CODE_WIDTH;
         this.codeHeight = CODE_HEIGHT;
         this.colorFront = COLOR_FRONT;
-        this.colorBackground =COLOR_BACKGROUND;
+        this.colorBackground = COLOR_BACKGROUND;
     }
 
     /**
      * Create a QR code and save it to the specified path
+     *
      * @param codeText QR code text
      * @param filePath Specified path
      * @throws WriterException
@@ -86,12 +89,12 @@ public class QRCodeUtils {
         File file = new File(filePath);
         String savePath = "";
         String saveName = "";
-        if(file.isDirectory()){
+        if (file.isDirectory()) {
             saveName = System.currentTimeMillis() + ".png";
         } else {
-            filePath = StringUtils.substringBeforeLast(filePath,"/");
+            filePath = StringUtils.substringBeforeLast(filePath, "/");
             saveName = StringUtils.substringAfterLast(filePath, "/");
-            if(!StringUtils.substringAfterLast(saveName,".").equals("png")){
+            if (!StringUtils.substringAfterLast(saveName, ".").equals("png")) {
                 saveName = saveName + ".png";
             }
         }
@@ -102,7 +105,8 @@ public class QRCodeUtils {
 
     /**
      * Create QR code and write to stream
-     * @param codeText QR code text
+     *
+     * @param codeText     QR code text
      * @param outputStream stream
      * @throws WriterException
      * @throws IOException
@@ -114,6 +118,7 @@ public class QRCodeUtils {
 
     /**
      * Check QR code text
+     *
      * @param codeText
      * @return String
      */
@@ -127,6 +132,7 @@ public class QRCodeUtils {
 
     /**
      * Get bufferedImage by text
+     *
      * @param codeText text
      * @return BufferedImage
      * @throws WriterException
