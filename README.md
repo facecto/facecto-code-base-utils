@@ -7,7 +7,7 @@ facecto-code-base-utils is a standard tool library that contains commonly used u
 <dependency>
   <groupId>com.facecto.code</groupId>
   <artifactId>facecto-code-base-utils</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.7</version>
 </dependency>
 ```
 ## Step 2 : No more step. Enjoy it.

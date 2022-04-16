@@ -6,7 +6,7 @@
 
     <groupId>com.facecto.code</groupId>
     <artifactId>facecto-code-base-utils</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.8</version>
     <packaging>jar</packaging>
 
     <name> ${project.artifactId} </name>
@@ -41,7 +41,7 @@
         <developer>
             <name>Jon So</name>
             <email>ijonso123@gmail.com</email>
-            <url>https://cto.pub</url>
+            <url>https://jonso.me</url>
             <organization>facecto.com</organization>
             <organizationUrl>https://facecto.com</organizationUrl>
             <roles>
@@ -94,7 +94,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <scope>provided</scope>
-            <version>5.3.17</version>
+            <version>5.3.18</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -121,12 +121,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <scope>provided</scope>
-            <version>5.3.17</version>
+            <version>5.3.18</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.79</version>
+            <version>1.2.80</version>
         </dependency>
     </dependencies>
 

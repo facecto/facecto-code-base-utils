@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * QRCodeUtils
  *
- * @author Jon So, https://cto.pub, https://github.com/facecto
+ * @author Jon So, https://facecto.com, https://github.com/facecto
  * @version v1.1.2 (2022/01/01)
  */
 @Slf4j

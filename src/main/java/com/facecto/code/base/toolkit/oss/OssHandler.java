@@ -12,7 +12,7 @@ import com.facecto.code.base.toolkit.oss.entity.STSToken;
 /**
  * OSSTools
  *
- * @author Jon So, https://cto.pub, https://github.com/facecto
+ * @author Jon So, https://facecto.com, https://github.com/facecto
  * @version v1.0.0 (2021/12/09)
  */
 public class OssHandler {

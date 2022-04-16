@@ -6,7 +6,7 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author Jon So, https://cto.pub, https://github.com/facecto
+ * @author Jon So, https://facecto.com, https://github.com/facecto
  * @version v1.0.0 (2021/12/02)
  * Get 24-bit fixed-length sequential code.
  * Used to generate sequential codes with dates.
